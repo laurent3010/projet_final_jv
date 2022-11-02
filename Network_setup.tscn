@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Network_setup.gd" type="Script" id=1]
+[ext_resource path="res://Base_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ressource/Tunic_header.jpg" type="Texture" id=3]
+
+[node name="Network_setup" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Multiplayer_configure" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+
+[node name="creat_server" type="Button" parent="Multiplayer_configure"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 150.0
+margin_top = -53.0
+margin_right = 400.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 2 )
+text = "crée un server"
+
+[node name="join_server" type="Button" parent="Multiplayer_configure"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -53.0
+margin_right = -150.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 2 )
+text = "rejoindre un server"
+
+[node name="server_ip_adresse" type="LineEdit" parent="Multiplayer_configure"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -168.0
+margin_top = 100.0
+margin_right = 168.0
+margin_bottom = 136.0
+custom_fonts/font = ExtResource( 2 )
+text = "entré une adresse ip"
+align = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Multiplayer_configure"]
+
+[node name="adresse_ip_device" type="Label" parent="Multiplayer_configure/CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="Multiplayer_configure"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -105.0
+margin_top = 40.0
+margin_right = 105.0
+margin_bottom = 75.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "peter de geneoux 2022"
+align = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 513, 298 )
+scale = Vector2( 1.28125, 1.32851 )
+texture = ExtResource( 3 )
+flip_h = true
+
+[connection signal="pressed" from="Multiplayer_configure/creat_server" to="." method="_on_creat_server_pressed"]
+[connection signal="pressed" from="Multiplayer_configure/join_server" to="." method="_on_join_server_pressed"]
