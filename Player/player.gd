@@ -4,6 +4,7 @@ export var MAX_SPEED = 80
 export var ROLL_SPEED = 100
 export var ACCELERATION = 500
 export var FRICTION = 500
+export var spawn_location =1
 
 export (PackedScene) var boule_de_feu: PackedScene= preload("res://hitbox_and_hurtbox/boule de feu.tscn")
 
@@ -12,6 +13,7 @@ enum {
 	ROLL,
 	ATTACK
 }
+
 
 var state = MOVE
 var velocity = Vector2.ZERO
