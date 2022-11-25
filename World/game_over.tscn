@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Base_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://World/game_over.gd" type="Script" id=2]
+
+[node name="game_over" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.12
+anchor_right = 0.5
+anchor_bottom = 0.12
+margin_left = -154.0
+margin_top = -29.0
+margin_right = -58.0
+margin_bottom = -9.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "game over"
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 5.0
+margin_top = 104.0
+margin_right = 1017.0
+margin_bottom = 568.0
+
+[node name="return_menu" type="Button" parent="Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 80.0
+margin_top = -40.0
+margin_right = 270.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "retour au menu"
+
+[node name="ressayer" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -95.0
+margin_top = -40.0
+margin_right = 95.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "ressayer"
+
+[node name="quit" type="Button" parent="Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -270.0
+margin_top = -40.0
+margin_right = -80.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "quiter le jeu"
+
+[connection signal="pressed" from="Panel/return_menu" to="." method="_on_return_menu_pressed"]
+[connection signal="pressed" from="Panel/ressayer" to="." method="_on_ressayer_pressed"]
+[connection signal="pressed" from="Panel/quit" to="." method="_on_quit_pressed"]

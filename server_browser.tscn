@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ressource/Tunic_header.jpg" type="Texture" id=1]
+[ext_resource path="res://ressource/Down Hill.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Base_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://server_browser.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer:root_node")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ NodePath("..") ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "recherche de server" ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "recherche_server"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "recherche de server", "recherche de server.", "recherche de server..", "recherche de server..." ]
+}
+
+[node name="server_browser" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Panel" type="Panel" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -362.0
+margin_top = -430.0
+margin_right = 362.0
+margin_bottom = -30.0
+
+[node name="manual_setup" type="Button" parent="TextureRect/Panel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -196.0
+margin_top = -84.0
+margin_right = -14.0
+margin_bottom = -14.0
+custom_fonts/font = SubResource( 1 )
+text = "manual setup"
+
+[node name="go_back" type="Button" parent="TextureRect/Panel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -710.0
+margin_top = -84.0
+margin_right = -528.0
+margin_bottom = -14.0
+custom_fonts/font = SubResource( 1 )
+text = "retour"
+
+[node name="server_ip_adress" type="LineEdit" parent="TextureRect/Panel"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -212.5
+margin_top = -125.0
+margin_right = 212.5
+margin_bottom = -75.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+placeholder_text = "entrer l'adress ip du server"
+
+[node name="join_server_button" type="Button" parent="TextureRect/Panel/server_ip_adress"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -91.0
+margin_top = 30.0
+margin_right = 91.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 1 )
+text = "join server"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -300.0
+margin_top = 20.0
+margin_right = 300.0
+margin_bottom = 292.0
+
+[node name="serching_for_server" type="Label" parent="TextureRect/Panel/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 4 )
+text = "recherche de server"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/Panel/VBoxContainer/serching_for_server"]
+autoplay = "recherche_server"
+playback_speed = 0.5
+anims/RESET = SubResource( 2 )
+anims/recherche_server = SubResource( 3 )
+
+[node name="title" type="Label" parent="TextureRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -145.0
+margin_top = 38.0
+margin_right = 47.0
+margin_bottom = 58.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "moteur de recherche"
+
+[connection signal="pressed" from="TextureRect/Panel/manual_setup" to="." method="_on_manual_setup_pressed"]
+[connection signal="pressed" from="TextureRect/Panel/go_back" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="TextureRect/Panel/server_ip_adress/join_server_button" to="." method="_on_join_server_button_pressed"]

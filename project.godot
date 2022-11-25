@@ -18,8 +18,10 @@ config/icon="res://icon.png"
 
 Network="*res://Network.gd"
 PlayerStats="*res://Player/player_stats.tscn"
+Persistent_nodes="*res://Persistent_nodes.tscn"
 Global="*res://Global.gd"
-Players="*res://Players.tscn"
+GlobalWorld="*res://GlobalWorld.tscn"
+Music="*res://Music and Sounds/music.tscn"
 
 [global]
 
@@ -67,6 +69,16 @@ attack={
 roll={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Play_music={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":76,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ability={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
 

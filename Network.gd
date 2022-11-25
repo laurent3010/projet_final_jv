@@ -8,6 +8,7 @@ var server = null
 var client = null
 
 var ip_address = ""
+var current_player_username =""
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,10 +27,16 @@ func _ready() ->void:
 	get_tree().connect("connected_to_server",self,"_connected_to_server")
 	get_tree().connect("server_disconnected",self,"_server_disconnected")
 
+func reset_network_connection() -> void:
+	if get_tree().has_network_peer():
+		get_tree().network_peer = null
+		
 func create_server() ->void:
+	
 	server=NetworkedMultiplayerENet.new()
 	server.create_server(default_port,maxclient)
 	get_tree().set_network_peer(server)
+	Global.instance_node(load("res://Server_advertiser.tscn"), get_tree().current_scene)
 	
 func join_server() -> void:
 	client = NetworkedMultiplayerENet.new()
@@ -43,4 +50,15 @@ func _connected_to_server() -> void:
 	
 func _server_disconnected()->void:
 	print("sa c'est bien Déconnecter")
+	
+	
+	for child in Persistent_nodes.get_children():
+		if child.is_in_group("Net"):
+			child.queue_free()
+	
+	reset_network_connection()
+	Persistent_nodes.show()
+	
+func gameover():
+	get_tree().reload_current_scene()
 
