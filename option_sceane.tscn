@@ -52,9 +52,9 @@ align = 1
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -480.0
-margin_top = 268.0
+margin_top = 168.0
 margin_right = -261.0
-margin_bottom = 357.0
+margin_bottom = 353.0
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = ExtResource( 1 )
 text = "w.a.s.d = deplacement
@@ -62,7 +62,8 @@ space = roulade
 click gauche = attaque
 e = capacité
 l=activé/desactivé
-la musique"
+la musique
+g = debug mode in game"
 align = 1
 
 [connection signal="pressed" from="TextureRect/go_back" to="." method="_on_go_back_pressed"]

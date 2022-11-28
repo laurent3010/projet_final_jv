@@ -2,7 +2,7 @@ extends Node2D
 
 
 # Declare member variables here. Examples:
-# var a = 2
+var a = 1
 onready var world =$world
 onready var darkness =$CanvasModulate
 var player_instance = Global.player_master
@@ -29,7 +29,15 @@ func _ready():
 func _process(delta):
 	if player_instance !=null:
 		player_instance.connect("pizza",self,"game_over")
-#	pass
+		
+	if Input.is_action_just_pressed("debug_mod"):
+		if a ==1:
+			darkness.hide()
+			a=2
+		else:
+			darkness.show()
+			a=1
+
 func game_over():
 	#world.queue_free()
 	darkness.visible

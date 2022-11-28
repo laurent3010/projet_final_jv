@@ -14,6 +14,7 @@ enum {
 	ATTACK
 }
 
+var a = 1
 var state = MOVE
 var velocity = Vector2.ZERO
 var input_vector = Vector2.ZERO
@@ -45,7 +46,7 @@ puppet var puppet_mourir = 1
 signal pizza
 
 func _ready():
-	stats.connect("no_health",self,"mourir")
+	
 	animation_tree.active = true
 	swordhitbox.knockback_vector = roll_vector
 	yield(get_tree(),"idle_frame")
@@ -112,6 +113,13 @@ func move_state(delta):
 				light.texture_scale = 1
 				Lighttimer.start()
 				etc =2
+
+		if Input.is_action_just_pressed("debug_mod"):
+			if a ==1:
+				a=2
+			else:
+
+				a=1
 		
 	else:
 		if puppet_input_vector != Vector2.ZERO:
@@ -122,6 +130,7 @@ func move_state(delta):
 			animation_tree.set("parameters/attack/blend_position", puppet_input_vector)
 			animation_tree.set("parameters/roll/blend_position", puppet_input_vector)
 			animation_state.travel("run")
+			
 		else:
 			animation_state.travel("idle")
 			if not tween.is_active():
@@ -142,6 +151,7 @@ func attack_state(delta):
 	
 	
 func move():
+
 	velocity = move_and_slide(velocity)
 	
 	
@@ -171,7 +181,9 @@ func attaque_bouleDeFeu():
 		BTimer.start()
 
 func _on_hurtbox_area_entered(area):
-	mourir()
+	
+	if a == 1:
+		mourir()
 	#hurtbox.start_invincibility(0.5)
 	#hurtbox.create_hit_effect()
 
