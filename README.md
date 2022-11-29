@@ -20,3 +20,68 @@ les decors et le personage utilisé dans mon jeu on été inspiré de la série 
 
 les lumiere ont été inspiré de la video [2D Lighting and Day&Night cycle in under 5 minutes! Godot 3.2 Tutorial](https://www.youtube.com/watch?v=j_FMsL_ru1w&t=143s)
 
+#server en attante
+
+<table>
+    <tr>
+        <td>
+            <figure>
+                <img src="image_de_présentation/lobby _de_base.jpg"/>
+                <figcaption>Figure 1 : le sereur en attente de joueur</figcaption>
+            </figure>
+        </td>
+        <td>
+            <figure>
+                <img src="image_de_présentation/lobby_complet.jpg"/>
+                <figcaption>Figure 2 : tout les joueur sont la et la parti est prete a être lancer</figcaption>
+            </figure>
+        </td>
+    </tr>
+</table>
+
+#in game mecanique
+
+<table>
+    <tr>
+        <td>
+            <figure>
+                <img src="image_de_présentation/in_game_normal.jpg"/>
+                <figcaption>Figure 1 : les joueur sont tout les deux dans le noir et il faut chercher les autre joueurs pour les tuer en un coup.</figcaption>
+            </figure>
+        </td>
+        <td>
+            <figure>
+                <img src="image_de_présentation/Capture d’écran (42).png"/>
+                <figcaption>Figure 2 :les joueurs peuvent appuyer sur "E" pour acivé une capacité pour voir plus loing et avoir des informations pour surprendre l'adversaire.</figcaption>
+            </figure>
+        </td>
+    </tr>
+</table>
+
+##manuel de jeu 
+
+-pour commencé les joueurs entre un nom dans le text edit "entré un username"
+
+-ensuite choisisé entre crée un server ou rejoindre un server
+
+-crée un server crée un lobby et vous attendez des joueur en essayant les diferant mouvemant du persoonage
+
+-le boutton rejoindre un server vous amene dans une page pour trouvé un server la recherche automatique est actuelement hors d'usage donc utilisé le bouton manuel 
+
+# si vous le testé avec l'I.D.E godot et non en executable .exe assurez vous que les export sont telechargé 
+
+  <figure>
+    <img src="image_de_présentation/Capture d’écran (43).png"/>
+    <figcaption>Figure 1 : si le texte est rouge comme sur l'image suivre la [video](https://www.youtube.com/watch?v=9WwKs3q-ebo) si jointe apartir de 24:00 minute. cela evite les erreur de port deja pris </figcaption>
+  </figure>
+
+-pour la connection manuel rentré ladress ipv4 wifi du server et clicker sur le bouton join lance le jeu dans le loby du server  
+
+-une foit tout les joueur arrivé le serveur lance le jeu en clican sur le bouton start game 
+
+a noté que si vous voulez changer le nombre de  joueur maximal il y a une variable dans lefichier network qui gere le nombre de client maximal priere de ne pas depassé 4 car le jeu nes pas fait pour plus 
+
+les regle jeu sont simple 
+- vous ete dans le noir cherchez les autre joueur et tues les il peuve respawn a l'infini dans le jeu mais il peuve aussi quité sa que ce soit notifier 
+
+finalement le debug mode s'active en apuyan sur "g"
