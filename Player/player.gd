@@ -238,8 +238,9 @@ func _onstartgame():
 		light.visible= true
 
 func respaun():
+	show()
+	visible=true
 	if is_network_master():
-		show()
 		etb =1
 		light.visible= true
 			

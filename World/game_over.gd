@@ -29,8 +29,9 @@ func _on_ressayer_pressed():
 	Persistent_nodes.show()
 	for player in Persistent_nodes.get_children():
 		if player.is_in_group("Player"):
-			player.visible =true
-	player_instance.respaun()
+			player.respaun()
+			
+	
 	get_tree().change_scene("res://World/Real_game.tscn")
 	
 

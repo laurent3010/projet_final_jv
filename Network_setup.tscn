@@ -86,14 +86,15 @@ text = "start game"
 [node name="Label" type="Label" parent="Multiplayer_configure"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -208.0
-margin_top = 25.0
-margin_right = 2.0
-margin_bottom = 60.0
+margin_left = -207.0
+margin_top = 13.0
+margin_right = 3.0
+margin_bottom = 56.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "peter de geneoux 2022"
+text = "mortal fox combat
+ 2022"
 align = 1
 
 [node name="go_back" type="Button" parent="Multiplayer_configure"]
